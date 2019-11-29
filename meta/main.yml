@@ -26,14 +26,14 @@ galaxy_info:
     - prometheusblackboxexporter
 dependencies:
   - role: rgibert.single_binary_service
-    version: "{{ single_binary_service_role_version }}"
+    version: 1.2.1
     prometheus_blackbox_exporter_arch: amd64
     when:
       - ansible_architecture == 'x86_64'
     tags:
       - prometheus_blackbox_exporter
   - role: rgibert.single_binary_service
-    version: "{{ single_binary_service_role_version }}"
+    version: 1.2.1
     prometheus_blackbox_exporter_arch: 386
     when:
       - ansible_architecture == 'x86'
