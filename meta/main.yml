@@ -1,0 +1,41 @@
+---
+galaxy_info:
+  role_name: prometheus_node_exporter
+  author: Richard Gibert
+  company: Gibert.ca
+  description: Installs Prometheus's node_exporter
+  license: GPLv3
+  min_ansible_version: 2.2
+  platforms:
+    - name: EL
+      versions:
+        - 6
+        - 7
+    - name: Ubuntu
+      versions:
+        - bionic
+        - eoan
+        - trusty
+        - xenial
+    - name: Debian
+      versions:
+        - buster
+  galaxy_tags:
+    - prometheus
+    - blackboxexporter
+    - prometheusblackboxexporter
+dependencies:
+  - role: rgibert.single_binary_service
+    version: 1.2.1
+    prometheus_blackbox_exporter_arch: amd64
+    when:
+      - ansible_architecture == 'x86_64'
+    tags:
+      - prometheus_blackbox_exporter
+  - role: rgibert.single_binary_service
+    version: 1.2.1
+    prometheus_blackbox_exporter_arch: 386
+    when:
+      - ansible_architecture == 'x86'
+    tags:
+      - prometheus_blackbox_exporter
