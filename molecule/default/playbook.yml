@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts:
+    - all
+  roles:
+    - role: rgibert.prometheus_blackbox_exporter
+      prometheus_blackbox_exporter_version: 0.16.0
